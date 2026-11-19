@@ -1,0 +1,50 @@
+package com.example.taskmanager.model; // Ajusta este caminho se o teu Group for diferente
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tasks")
+public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // O PostgreSQL vai gerar o ID automaticamente
+    private Long id;
+
+    private String title;
+
+    private boolean completed;
+
+    // Construtor vazio (Obrigatório para a base de dados funcionar)
+    public Task() {
+    }
+
+    public Task(String title, boolean completed) {
+        this.title = title;
+        this.completed = completed;
+    }
+
+    // Getters e Setters (Necessários para ler e alterar os dados)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+}
